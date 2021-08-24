@@ -1,13 +1,31 @@
-import { Link } from "gatsby"
 import * as React from "react"
 import Layout from "../components/layout"
+import FetchData from "../examples/fetchData"
+import { StaticImage } from "gatsby-plugin-image"
 
-const IndexPage = () => {
+const HomePage = () => {
   return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
+    <Layout>
+      <main className="page">
+        <header className="hero">
+          <StaticImage
+            src="../assets/images/main.jpeg"
+            alt="eggs"
+            className="hero-img"
+            placeholder="tracedSVG"
+            layout="fullWidth"
+          />
+          <div className="hero-container">
+            <div className="hero-text">
+              <h1>simply recipes</h1>
+              <h4>no fluff, just recipes</h4>
+            </div>
+          </div>
+        </header>
+        <FetchData />
+      </main>
     </Layout>
   )
 }
 
-export default IndexPage
+export default HomePage
