@@ -1,12 +1,39 @@
 import * as React from "react"
 import Layout from "../components/layout"
+import { graphql, Link } from "gatsby"
+import setupTags from "../utils/setupTags"
 
-const TagPage = () => {
+const TagPage = ({ data }) => {
+  const newTags = setupTags(data.allContentfulRecipe.nodes)
   return (
     <Layout pageTitle="Tag">
-      <p>Hi there! This is tag page.</p>
+      <main className="page">
+        <section className="tags-page">
+          {newTags.map((tag, index) => {
+            const [text, value] = tag
+            return (
+              <Link to={`/${text}`} key={index} className="tag">
+                <h5>{text}</h5>
+                <p>{value} recipe</p>
+              </Link>
+            )
+          })}
+        </section>
+      </main>
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allContentfulRecipe {
+      nodes {
+        content {
+          tags
+        }
+      }
+    }
+  }
+`
 
 export default TagPage
