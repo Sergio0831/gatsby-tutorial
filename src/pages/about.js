@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link, graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
+import Seo from "../components/SEO"
 
 const AboutPage = ({
   data: {
@@ -11,6 +12,7 @@ const AboutPage = ({
 }) => {
   return (
     <Layout>
+      <Seo title="About" />
       <main className="page">
         <section className="about-page">
           <article>

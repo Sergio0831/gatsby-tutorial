@@ -15,6 +15,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -31,6 +32,23 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFULL_SPACE_ID,
         accessToken: process.env.CONTENTFULL_API_KEY,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Montserrat",
+              variants: ["400"],
+            },
+            {
+              family: "Inconsolata",
+              variants: ["300", "400", "500", "600", "700"],
+            },
+          ],
+        },
       },
     },
     // Get styles
